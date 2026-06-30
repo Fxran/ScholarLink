@@ -99,8 +99,11 @@
 }
 
 .sl-logo-icon {
-  font-size: 22px;
-  display: inline-block;
+  width: 60px;
+  height: 60px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 60px;
   transition: transform 0.3s ease;
 }
 
@@ -487,27 +490,25 @@
 }
 
 .sl-how-step {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: inline-flex;
   background: #14328c;
   color: #fff;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
   align-items: center;
   justify-content: center;
   font-size: 13px;
   font-weight: 700;
+  margin: 0 auto 18px;
   transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .sl-how-card:hover .sl-how-step {
   background: #f4b400;
   color: #0b1f4d;
-  transform: translateX(-50%) scale(1.08);
+  transform: scale(1.08);
 }
 
 .sl-how-icon {

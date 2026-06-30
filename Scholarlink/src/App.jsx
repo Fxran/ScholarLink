@@ -1,33 +1,13 @@
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Features from './components/Features.jsx'
-import About from './components/About.jsx'
-import Technology from './components/Technology.jsx'
-import Workflow from './components/Workflow.jsx'
-import Statistics from './components/Statistics.jsx'
-import Team from './components/Team.jsx'
-import Testimonials from './components/Testimonials.jsx'
-import FAQ from './components/FAQ.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
+import React from 'react';
+import './App.css';
+import ScholarLink from './components/landingpage/scholarlink';
 
-export default function App() {
+function App() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <About />
-        <Technology />
-        <Workflow />
-        <Statistics />
-        <Team />
-        <Testimonials />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  )
+    <div className="App">
+      <ScholarLink />
+    </div>
+  );
 }
+
+export default App;

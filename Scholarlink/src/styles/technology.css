@@ -1,0 +1,48 @@
+.technology__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.tech-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  text-align: center;
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.tech-card:hover {
+  transform: scale(1.04);
+  border-color: var(--color-accent-teal);
+  box-shadow: 0 20px 40px -25px rgba(45, 212, 191, 0.5);
+}
+
+.tech-card__icon {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.tech-card__name {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.tech-card__description {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 940px) {
+  .technology__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .technology__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,15 +1,20 @@
 import React from "react";
 import "./ScholarLink.css";
+import logoImage from "../../assets/{images,icons}/logo.png";
+import emblemImage from "../../assets/{images,icons}/emblem.png";
+import gateImage from "../../assets/{images,icons}/gate.png";
+import gateImage2 from "../../assets/{images,icons}/backGate.jpg";
+
 
 /* =========================================================================
    IMAGE PLACEHOLDERS
    Swap any of these constants with your own image path / import / URL.
    e.g. import heroImg from "./assets/hero.png"; then HERO_IMAGE = heroImg;
    ========================================================================= */
-const HERO_IMAGE =
-  "https://placehold.co/640x520/cccccc/666666?text=Hero+Image";
-const ABOUT_IMAGE =
-  "https://placehold.co/640x420/cccccc/666666?text=About+Us+Image";
+const HERO_IMAGE = gateImage;
+const ABOUT_IMAGE = gateImage2;
+const LOGO_IMAGE = logoImage;
+const EMBLEM_IMAGE = emblemImage;
 
 export default function ScholarLink() {
   return (
@@ -18,9 +23,11 @@ export default function ScholarLink() {
       <header className="sl-navbar">
         <div className="sl-container sl-navbar-inner">
           <div className="sl-logo">
-            <span className="sl-logo-icon" aria-hidden="true">
-              🎓
-            </span>
+            <img
+              src={LOGO_IMAGE}
+              alt="ScholarLink logo"
+              className="sl-logo-icon"
+            />
             <span className="sl-logo-text">ScholarLink</span>
           </div>
           <nav className="sl-nav-right">
@@ -225,15 +232,25 @@ export default function ScholarLink() {
         <div className="sl-container sl-footer-grid">
           <div className="sl-footer-brand">
             <div className="sl-logo sl-logo--footer">
-              <span className="sl-logo-icon" aria-hidden="true">
-                🎓
-              </span>
+              <img
+                src={LOGO_IMAGE}
+                alt="ScholarLink logo"
+                className="sl-logo-icon"
+              />
               <span className="sl-logo-text">ScholarLink</span>
             </div>
             <p>
               Your smart partner in finding and applying for scholarships.
               Empowering students. Connecting opportunities.
             </p>
+          </div>
+
+          <div className="sl-footer-image-wrap">
+            <img
+              src={EMBLEM_IMAGE}
+              alt="ScholarLink emblem"
+              className="sl-footer-image"
+            />
           </div>
 
           <div className="sl-footer-contact">

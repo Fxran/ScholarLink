@@ -264,7 +264,7 @@ export default function ScholarLink() {
               Bulacan State University
             </p>
             <div className="sl-footer-social">
-              <a href="#" aria-label="Facebook" className="sl-social-icon">
+              <a href="https://web.facebook.com/BulSUMC" aria-label="Facebook" className="sl-social-icon">
                 f
               </a>
               <a href="#" aria-label="Twitter" className="sl-social-icon">

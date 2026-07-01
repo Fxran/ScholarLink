@@ -1,9 +1,19 @@
-import React from "react";
+import { useState } from "react";
 import "./ScholarLink.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logoImage from "../../assets/{images,icons}/logo.png";
 import emblemImage from "../../assets/{images,icons}/emblem.png";
 import gateImage from "../../assets/{images,icons}/gate.png";
 import gateImage2 from "../../assets/{images,icons}/backGate.jpg";
+import mortarboardIcon from "../../assets/icons/mortarboard.png";
+import searchIcon from "../../assets/icons/search.png";
+import docsIcon from "../../assets/icons/google-docs.png";
+import userIcon from "../../assets/icons/user.png";
+import graphReportIcon from "../../assets/icons/graph-report.png";
+import bellIcon from "../../assets/icons/bell.png";
+import multipleUsersIcon from "../../assets/icons/multiple-users-silhouette.png";
+import insuranceIcon from "../../assets/icons/insurance.png";
+import handshakeIcon from "../../assets/icons/handshake.png";
 
 
 /* =========================================================================
@@ -17,6 +27,10 @@ const LOGO_IMAGE = logoImage;
 const EMBLEM_IMAGE = emblemImage;
 
 export default function ScholarLink() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="sl-page">
       {/* ---------------- NAVBAR ---------------- */}
@@ -30,12 +44,29 @@ export default function ScholarLink() {
             />
             <span className="sl-logo-text">ScholarLink</span>
           </div>
-          <nav className="sl-nav-right">
-            <a href="#contact" className="sl-nav-link">
+          <button
+            className="sl-menu-toggle"
+            type="button"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="sl-primary-nav"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+          <nav
+            className={`sl-nav-right${isMenuOpen ? " sl-nav-right--open" : ""}`}
+            id="sl-primary-nav"
+          >
+            <a href="#contact" className="sl-nav-link" onClick={closeMenu}>
               Contact
             </a>
-            <button className="sl-btn sl-btn-outline">Login</button>
-            <button className="sl-btn sl-btn-primary">Sign Up</button>
+            <button className="sl-btn sl-btn-outline" onClick={closeMenu}>
+              Login
+            </button>
+            <button className="sl-btn sl-btn-primary" onClick={closeMenu}>
+              Sign Up
+            </button>
           </nav>
         </div>
       </header>
@@ -94,7 +125,9 @@ export default function ScholarLink() {
       <section className="sl-stats">
         <div className="sl-container sl-stats-inner">
           <div className="sl-stat-item">
-            <span className="sl-stat-icon">📚</span>
+            <span className="sl-stat-icon">
+              <img src={mortarboardIcon} alt="Scholarships" />
+            </span>
             <div>
               <p className="sl-stat-title">100+</p>
               <p className="sl-stat-sub">Scholarships Available</p>
@@ -102,7 +135,9 @@ export default function ScholarLink() {
           </div>
           <div className="sl-stat-divider" />
           <div className="sl-stat-item">
-            <span className="sl-stat-icon">🔍</span>
+            <span className="sl-stat-icon">
+              <img src={searchIcon} alt="AI matching" />
+            </span>
             <div>
               <p className="sl-stat-title">AI-Powered</p>
               <p className="sl-stat-sub">Matching</p>
@@ -110,7 +145,9 @@ export default function ScholarLink() {
           </div>
           <div className="sl-stat-divider" />
           <div className="sl-stat-item">
-            <span className="sl-stat-icon">📝</span>
+            <span className="sl-stat-icon">
+              <img src={docsIcon} alt="Application tracking" />
+            </span>
             <div>
               <p className="sl-stat-title">Easy</p>
               <p className="sl-stat-sub">Application Tracking</p>
@@ -127,38 +164,45 @@ export default function ScholarLink() {
             {[
               {
                 step: 1,
-                icon: "👤",
+                icon: userIcon,
+                alt: "Create Profile",
                 title: "Create Profile",
                 desc: "Sign up and create your academic profile.",
               },
               {
                 step: 2,
-                icon: "🔍",
+                icon: searchIcon,
+                alt: "Get Matched",
                 title: "Get Matched",
                 desc: "Receive personalized scholarship recommendations.",
               },
               {
                 step: 3,
-                icon: "📄",
+                icon: docsIcon,
+                alt: "Apply Easily",
                 title: "Apply Easily",
                 desc: "Submit your application and required documents.",
               },
               {
                 step: 4,
-                icon: "📈",
+                icon: graphReportIcon,
+                alt: "Track Applications",
                 title: "Track Applications",
                 desc: "Monitor your application status in real time.",
               },
               {
                 step: 5,
-                icon: "🔔",
+                icon: bellIcon,
+                alt: "Get Notified",
                 title: "Get Notified",
                 desc: "Receive updates on deadlines, results, and announcements.",
               },
             ].map((item) => (
               <div className="sl-how-card" key={item.step}>
                 <span className="sl-how-step">{item.step}</span>
-                <span className="sl-how-icon">{item.icon}</span>
+                <span className="sl-how-icon">
+                  <img src={item.icon} alt={item.alt} />
+                </span>
                 <h3 className="sl-how-title">{item.title}</h3>
                 <p className="sl-how-desc">{item.desc}</p>
               </div>
@@ -183,7 +227,9 @@ export default function ScholarLink() {
 
           <div className="sl-about-cols">
             <div className="sl-about-col">
-              <span className="sl-about-icon">🎓</span>
+              <span className="sl-about-icon">
+                <img src={mortarboardIcon} alt="Mission" />
+              </span>
               <h4>Our Mission</h4>
               <p>
                 Empower students by making scholarship opportunities easy to
@@ -191,7 +237,9 @@ export default function ScholarLink() {
               </p>
             </div>
             <div className="sl-about-col">
-              <span className="sl-about-icon">👥</span>
+              <span className="sl-about-icon">
+                <img src={multipleUsersIcon} alt="Vision" />
+              </span>
               <h4>Our Vision</h4>
               <p>
                 A world where every student has access to the financial
@@ -199,7 +247,9 @@ export default function ScholarLink() {
               </p>
             </div>
             <div className="sl-about-col">
-              <span className="sl-about-icon">🛡️</span>
+              <span className="sl-about-icon">
+                <img src={insuranceIcon} alt="Commitment" />
+              </span>
               <h4>Our Commitment</h4>
               <p>
                 We are committed to innovation, integrity, and student
@@ -207,7 +257,9 @@ export default function ScholarLink() {
               </p>
             </div>
             <div className="sl-about-col">
-              <span className="sl-about-icon">🤝</span>
+              <span className="sl-about-icon">
+                <img src={handshakeIcon} alt="Who we serve" />
+              </span>
               <h4>Who We Serve</h4>
               <p>
                 We support students, scholarship providers, and institutions
@@ -260,11 +312,14 @@ export default function ScholarLink() {
               menese.scholarlink@gmail.com
             </p>
             <p>
+              <span className="sl-footer-icon">📞</span> (044) 792 2661
+            </p>
+            <p>
               <span className="sl-footer-icon">📍</span> Meneses Campus,
               Bulacan State University
             </p>
             <div className="sl-footer-social">
-              <a href="#" aria-label="Facebook" className="sl-social-icon">
+              <a href="https://web.facebook.com/BulSUMC" aria-label="Facebook" className="sl-social-icon">
                 f
               </a>
               <a href="#" aria-label="Twitter" className="sl-social-icon">

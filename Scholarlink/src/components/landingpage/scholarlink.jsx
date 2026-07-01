@@ -78,7 +78,7 @@ export default function ScholarLink() {
             <h1>
               ScholarLink: <span className="sl-hero-light">AI-Powered</span>
               <br />
-              Scholarship Search Made Easy
+              Scholarship Search and Matching Platform
             </h1>
             <p className="sl-hero-sub">
               Find and apply for the perfect scholarship opportunities with

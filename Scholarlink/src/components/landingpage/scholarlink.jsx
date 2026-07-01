@@ -1,5 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import "./ScholarLink.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logoImage from "../../assets/{images,icons}/logo.png";
 import emblemImage from "../../assets/{images,icons}/emblem.png";
 import gateImage from "../../assets/{images,icons}/gate.png";
@@ -26,6 +27,10 @@ const LOGO_IMAGE = logoImage;
 const EMBLEM_IMAGE = emblemImage;
 
 export default function ScholarLink() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="sl-page">
       {/* ---------------- NAVBAR ---------------- */}
@@ -39,12 +44,29 @@ export default function ScholarLink() {
             />
             <span className="sl-logo-text">ScholarLink</span>
           </div>
-          <nav className="sl-nav-right">
-            <a href="#contact" className="sl-nav-link">
+          <button
+            className="sl-menu-toggle"
+            type="button"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="sl-primary-nav"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+          <nav
+            className={`sl-nav-right${isMenuOpen ? " sl-nav-right--open" : ""}`}
+            id="sl-primary-nav"
+          >
+            <a href="#contact" className="sl-nav-link" onClick={closeMenu}>
               Contact
             </a>
-            <button className="sl-btn sl-btn-outline">Login</button>
-            <button className="sl-btn sl-btn-primary">Sign Up</button>
+            <button className="sl-btn sl-btn-outline" onClick={closeMenu}>
+              Login
+            </button>
+            <button className="sl-btn sl-btn-primary" onClick={closeMenu}>
+              Sign Up
+            </button>
           </nav>
         </div>
       </header>
@@ -290,7 +312,7 @@ export default function ScholarLink() {
               menese.scholarlink@gmail.com
             </p>
             <p>
-              <span className="sl-footer-icon">📞</span> (02) 123-4567
+              <span className="sl-footer-icon">📞</span> (044) 792 2661
             </p>
             <p>
               <span className="sl-footer-icon">📍</span> Meneses Campus,
